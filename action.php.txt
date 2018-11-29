@@ -1,0 +1,17 @@
+<?php
+$mode=$_POST['go'];
+
+if($mode=='off'){
+        exec('sudo ../survo/test a',$result);
+}
+else if($mode=='on'){
+        exec('sudo ../survo/test b',$result);
+}
+
+else{
+        exec("sudo ./main2 $mode",$result);
+}
+
+echo $result[0];
+?>
+

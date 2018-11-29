@@ -1,0 +1,136 @@
+<style>
+
+        *{
+                outline:none;
+                -webkit-tap-highlight-color:rgba(0,0,0,0);
+                -webkit-tap-highlight-color:transparent;
+        }
+
+        body{
+                padding:100px;
+        }
+
+        button{
+                border-radius:4px;
+                border:1px solid #eee;
+                background:#f5f5f5;
+                cursor:pointer;
+        }
+        button.on{
+                background:#00FF00;
+        }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<button id="on_btn">ON</button> <button id="off_btn" class=on>OFF</button>
+
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>
+                </title>
+        </head>
+        <body>
+                <h1> <button id="ok">OK</button> <button id="select">SELECT</button> </h1>
+                <h1> <button id="sel_red">RED</button> <button id="sel_green">GREEN</button> <button id="sel_blue">BLUE</button> <button id="sel_yellow">YELLOW</button$
+                <h1> print image <br/> </h1>
+                <h1> <img src="http://192.168.137.3/processed_image.jpg") width="640px" heigt="480px" /> </h1>
+        </body>
+</html>
+
+<script>
+$(function(){
+        $('#ok').click(function(){
+                if($('#on_btn').hasClass('on')){
+                        $.post('./action.php',{"go":"on"},function(){},'text');
+                }
+                if($('#off_btn').hasClass('on')){
+                        $.post('./action.php',{"go":"off"},function(){},'text');
+                }
+        });
+
+        $('#select').click(function(){
+                if($color=='r'){
+                        $.post('./action.php',{"go":"r"},function(){},'text');
+                }
+                else if($color=='g'){
+                        $.post('./action.php',{"go":"g"},function(){},'text');
+                }
+                else if($color=='b'){
+                        $.post('./action.php',{"go":"b"},function(){},'text');
+                }
+                else if($color=='y'){
+                        $.post('./action.php',{"go":"y"},function(){},'text');
+                }
+                window.setTimeout('window.location.reload()',2000);
+        });
+
+        $('#on_btn').click(function(){
+                if(!$(this).hasClass('on')){
+                        $.post('',{},function(){
+                                $('#on_btn').addClass("on");
+                                $('#off_btn').removeClass("on");
+                        },'text');
+                }
+        });
+
+        $('#off_btn').click(function(){
+                if(!$(this).hasClass('on')){
+                        $.post('',{},function(){
+                                $('#off_btn').addClass("on");
+                                $('#on_btn').removeClass("on");
+                        },'text');
+                }
+        });
+
+        $('#sel_red').click(function(){
+                if(!$(this).hasClass('on')){
+                        $.post('',{},function(){
+                                $('#sel_red').addClass("on");
+                                $('#sel_green').removeClass("on");
+                                $('#sel_blue').removeClass("on");
+                                $('#sel_yellow').removeClass("on");
+                        },'text');
+                 $color='r';
+        });
+
+        $('#sel_green').click(function(){
+                if(!$(this).hasClass('on')){
+                        $.post('',{},function(){
+                                $('#sel_red').removeClass("on");
+                                $('#sel_green').addClass("on");
+                                $('#sel_blue').removeClass("on");
+                                $('#sel_yellow').removeClass("on");
+                        },'text');
+                }
+                $color='g';
+        });
+
+        $('#sel_blue').click(function(){
+                if(!$(this).hasClass('on')){
+                        $.post('',{},function(){
+                                $('#sel_red').removeClass("on");
+                                $('#sel_green').removeClass("on");
+                                $('#sel_blue').addClass("on");
+                                $('#sel_yellow').removeClass("on");
+                        },'text');
+                }
+                $color='b';
+        });
+
+        $('#sel_yellow').click(function(){
+                if(!$(this).hasClass('on')){
+                        $.post('',{},function(){
+                                $('#sel_red').removeClass("on");
+                                $('#sel_green').removeClass("on");
+                                $('#sel_blue').removeClass("on");
+                                $('#sel_yellow').addClass("on");
+                        },'text');
+                }
+                $color='y';
+        });
+
+});
+
+</script>
