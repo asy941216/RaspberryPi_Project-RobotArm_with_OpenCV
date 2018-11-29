@@ -2,7 +2,7 @@
 
 <동작 알고리즘 플로우차트>
 
-![flowchart](https://user-images.githubusercontent.com/42165220/49222154-7392d900-f41e-11e8-9640-5ebee5bb55a3.JPG)
+![flowchart](https://user-images.githubusercontent.com/42165220/49222813-3e878600-f420-11e8-91be-25bc64d3c6c8.JPG)
 
 <웹페이지 구축>
 
